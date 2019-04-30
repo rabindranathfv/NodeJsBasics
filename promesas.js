@@ -37,7 +37,29 @@ let getEmpleado = (id) => {
     });
 }
 
-getEmpleado(10).then(empleado => {
+let getSalario = (empleado) => {
+    return new Promise((resolve, reject) => {
+        let salarioDB = salarios.find(salario => salario.id === empleado.id);
+
+        if (!salarioDB) {
+            reject(`no existe un salario para el empleado ${ empleado.nombre }`);
+        } else {
+            resolve({
+                nombre: empleado.nombre,
+                salario: salarioDB.salario,
+                id: empleado.id
+            });
+        }
+    });
+};
+
+getSalario(empleados[1]).then(salario => {
+    console.log(`El salario que gana es de `, salario.salario);
+}, (error) => {
+    console.log(error);
+});
+
+getEmpleado(8).then(empleado => {
     console.log(`Emplado DB`, empleado);
 }, (error) => {
     console.log(error);
