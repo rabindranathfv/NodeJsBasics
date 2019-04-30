@@ -70,3 +70,19 @@ getEmpleado(1).then(empleado => {
 }, (error) => {
     console.log(error);
 });
+
+
+// no chain promeses
+console.log(`chain promises`);
+
+getEmpleado(4).then(empleado => {
+    console.log(`Chain
+    Chain`);
+
+    return getSalario(empleado);
+
+}).then(salario => {
+    console.log(`El salario que gana ${ salario.nombre } es de ${ salario.salario}`);
+}).catch(err => {
+    console.log(err);
+});
