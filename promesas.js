@@ -59,8 +59,14 @@ getSalario(empleados[1]).then(salario => {
     console.log(error);
 });
 
-getEmpleado(8).then(empleado => {
+getEmpleado(1).then(empleado => {
     console.log(`Emplado DB`, empleado);
+
+    getSalario(empleado).then(salario => {
+        console.log(`El salario que gana ${ empleado.nombre } es de ${ salario.salario}`);
+    }, (error) => {
+        console.log(error);
+    });
 }, (error) => {
     console.log(error);
-})
+});
