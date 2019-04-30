@@ -73,7 +73,7 @@ getEmpleado(1).then(empleado => {
 
 
 // no chain promeses
-console.log(`chain promises`);
+console.log(`chain promises WAY 2`);
 
 getEmpleado(4).then(empleado => {
     console.log(`Chain
@@ -86,3 +86,5 @@ getEmpleado(4).then(empleado => {
 }).catch(err => {
     console.log(err);
 });
+
+console.log(`chain promises WAY 3`);
