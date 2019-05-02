@@ -70,7 +70,7 @@ let getSalario3 = async(empleado) => {
     } else {
         return {
             nombre: empleado.nombre,
-            salario: salarioDB.salario,
+            salario: salario.salario,
             id: empleado.id
         };
     }
@@ -80,7 +80,8 @@ let getInformacion = async(id) => {
     console.log(`async-await function`);
     let empleado = await getEmpleado(id);
     // let salario = await getSalario(empleado);
-    let salario = await getSalario2(empleado);
+    // let salario = await getSalario2(empleado);
+    let salario = await getSalario3(empleado);
 
     console.log(empleado);
     console.log(salario);
