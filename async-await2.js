@@ -76,3 +76,9 @@ getInformacion(6).then(resp => {
 }, err => {
     console.log(err);
 });
+
+getInformacion(8).then(resp => {
+    console.log(resp);
+}).catch(err => {
+    console.log(err);
+});
