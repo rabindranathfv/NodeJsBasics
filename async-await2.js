@@ -54,18 +54,6 @@ let getSalario = (empleado) => {
     });
 };
 
-// getEmpleado(4).then(empleado => {
-//     console.log(`Chain
-//     Chain`);
-
-//     return getSalario(empleado);
-
-// }).then(salario => {
-//     console.log(`El salario que gana ${ salario.nombre } es de ${ salario.salario}`);
-// }).catch(err => {
-//     console.log(err);
-// });
-
 let getInformacion = async(id) => {
     console.log(`async-await function`);
     let empleado = await getEmpleado(id);
