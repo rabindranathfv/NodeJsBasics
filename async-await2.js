@@ -54,14 +54,37 @@ let getSalario = (empleado) => {
     });
 };
 
+// asyn await function
+
+let getSalario2 = async(empleado) => {
+    let salario = salarios.find(salario => salario.id === empleado.id);
+
+    return salario;
+}
+
+let getSalario3 = async(empleado) => {
+    let salario = salarios.find(salario => salario.id === empleado.id);
+
+    if (!salario) {
+        throw new Error(`no existe un salario para el empleado ${ empleado.nombre }`);
+    } else {
+        return {
+            nombre: empleado.nombre,
+            salario: salarioDB.salario,
+            id: empleado.id
+        };
+    }
+}
+
 let getInformacion = async(id) => {
     console.log(`async-await function`);
     let empleado = await getEmpleado(id);
-    let salario = await getSalario(empleado);
+    // let salario = await getSalario(empleado);
+    let salario = await getSalario2(empleado);
 
     console.log(empleado);
     console.log(salario);
-    return `${ salario.nombre} tiene un salario de ${ salario.salario }`;
+    return `${ empleado.nombre} tiene un salario de ${ salario.salario }`;
 }
 
 getInformacion(1).then(resp => {
